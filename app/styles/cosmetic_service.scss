@@ -1,0 +1,78 @@
+@use "./breakpoints" as *;
+@use './colors' as *;
+
+// Cosmetic Services
+.cosmetic-services {
+    width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 1rem;
+    .item-btn {
+        width: 100%;
+        height: max-content;
+        // display: inline-flex;
+        // align-items: center;
+        // justify-content: center;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid rgb(201, 201, 201);
+        margin-bottom: 20px;
+        text-decoration: none;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        -webkit-user-select: none; /* Chrome, Safari */
+        -moz-user-select: none;    /* Firefox */
+        -ms-user-select: none;     /* old Edge / IE */
+        user-select: none;
+        cursor: pointer;
+        &:hover {
+            background-color: $PaleMint;
+            border: 1px solid $PaleMint;
+        }
+        &:active {
+            transform: scale(0.97);
+        }
+        .top {
+            width: 100%;
+            //border: 1px solid red;
+            h1 {
+                font-size: 18px;
+                font-weight: 600;
+                text-transform: capitalize;
+                color: $CharcoalBlack;
+                text-align: left;
+            }
+            h5 {
+                font-size: 16px;
+                font-weight: 300;
+                color: rgb(105, 105, 105);
+                text-align: left;
+            }
+        }
+        .bottom {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 400;
+            // text-transform: capitalize;
+            color: $CharcoalBlack;
+            .bottom-left {
+                width: max-content;
+            }
+            .bottom-right {
+                width: max-content;
+                span {
+                    font-size: 16px;
+                    font-weight: 300;
+                    color:rgb(105, 105, 105);
+                }
+            }
+        }
+    }
+    .selected {
+        background-color: $PaleMint;
+        border: 1px solid $PaleMint;
+    }
+}

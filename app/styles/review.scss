@@ -1,0 +1,80 @@
+@use "./breakpoints" as *;
+@use './colors' as *;
+
+.booking-summary {
+    width: 100%;
+    p {
+        font-size: 16px;
+        font-weight: 300;
+        color: $MediumGray;
+        @include breakpoint(md) {
+            width: 90%;
+        }
+    }
+    .details {
+        width: 100%;
+        margin-top: 30px;
+        .item {
+            width: 100%;
+            margin-bottom: 50px;
+            @include breakpoint(md) {
+                display: flex;
+                justify-content: space-between;
+            }
+            .item-section {
+                width: 100%;
+                margin-bottom: 30px;
+                @include breakpoint(md) {
+                    width: calc(50% - 20px);
+                    margin-bottom: 0px;
+                }
+                h3 {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $SoftMintGreen;
+                    text-transform: capitalize;
+                }
+                .item-wrap {
+                    margin-top: 10px;
+                    width: 100%;
+                    display: flex;
+                    //justify-content: space-between;
+                    align-items: flex-start;
+                    //border: 1px solid orange;
+                    .field {
+                        width: max-content;
+                        //border: 1px solid orange;
+                        margin-right: 20px;
+                        span {
+                            font-size: 16px;
+                            font-weight: 300;
+                            color: $MediumGray;
+                            text-transform: capitalize;
+                        }
+                    }
+                    .value {
+                        width: max-content;
+                        span {
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: $CharcoalBlack;
+                            text-transform: capitalize;
+                        }
+                        .email {
+                            text-transform: lowercase;
+                        }
+                    }
+                }
+                .item-p-wrap {
+                    width: 100%;
+                    margin-top: 10px;
+                    span {
+                        font-size: 16px;
+                        font-weight: 300;
+                        color: $MediumGray;
+                    }
+                }
+            }
+        }
+    }
+}

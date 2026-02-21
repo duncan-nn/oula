@@ -1,0 +1,49 @@
+@use "./breakpoints" as *;
+@use './colors' as *;
+
+.time-slot-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem; // Tailwind gap-3 = 12px = 0.75rem
+
+  @media (min-width: 640px) { // Tailwind sm breakpoint
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.time-slot-btn {
+  border-radius: 6px;
+  border: 1px solid #e5e7eb; /* similar to Tailwind border */
+  padding: 8px 16px;
+  font-size: 14px;
+  transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
+  background-color: white;
+  color: $CharcoalBlack;
+  cursor: pointer;
+}
+
+.selected {
+    background-color: $DeepOliveGreen;
+    border: 1px solid $DeepOliveGreen;
+    color: #fff;
+}
+
+/* Hover (only when NOT disabled) */
+.time-slot-btn:hover {
+    background-color: $PaleMint;
+    border: 1px solid $PaleMint;
+    color: $CharcoalBlack;
+}
+
+/* Disabled state */
+.time-slot-btn--disabled {
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+}
+
+/* Prevent hover effect when disabled */
+.time-slot-btn--disabled:hover {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+}

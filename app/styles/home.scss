@@ -1,0 +1,152 @@
+@use "./breakpoints" as *;
+@use './colors' as *;
+
+.home-page {
+    width: 100%;
+    height: 100vh;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    @include breakpoint(md) {
+        padding: 2rem 4rem;
+    }
+
+    .brand-image {
+        width: 100px;
+        position: absolute;
+        // left: 1.5rem;
+        top: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        @include breakpoint(md) {
+            // width: 100px;
+            left: 4rem;
+            top: 2rem;
+            transform: none;  
+        }
+    }
+    .page-detail {
+        width: 90%;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        //-webkit-backdrop-filter: blur(26px) saturate(140%);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.15),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        padding: 30px 20px;
+        @include breakpoint(md) {
+            width: 500px;
+            padding: 50px 40px;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.1em;
+            margin-bottom: 15px;
+            text-align: center;
+            @include breakpoint(md) {
+                font-size: 36px;
+                text-align: left;
+            }
+        }
+        p {
+            font-size: 18px;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.3em;
+            text-align: center;
+            @include breakpoint(md) {
+                text-align: left;
+            }
+        }
+        .cta-div {
+            width: 100%;
+            margin-top: 25px;
+            .cta-btn {
+                width: 100%;
+                height: max-content;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $PaleMint;
+                //gap: 0.5rem;
+                padding: 15px 30px;
+                border-radius: 5px;
+                font-weight: 600;
+                font-size: 16px;
+                color: $CharcoalBlack;
+                transition: background-color 0.2s ease, transform 0.1s ease;
+                -webkit-user-select: none; /* Chrome, Safari */
+                -moz-user-select: none;    /* Firefox */
+                -ms-user-select: none;     /* old Edge / IE */
+                user-select: none;
+                cursor: pointer;
+                @include breakpoint(md) {
+                    width: max-content;
+                    padding: 10px 30px;
+                }
+                &:hover {
+                    background-color: #fff;
+                }
+                &:active {
+                    transform: scale(0.97);
+                }
+            }
+        }
+    }
+}
+
+.loading-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $CharcoalBlack;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 50;
+
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 65px;
+  display: grid;
+   z-index: 50;
+  --mask: 
+    radial-gradient(12px at left 15px top 50%, #0000 95%, #000),
+    radial-gradient(12px at right 15px top 50%, #0000 95%, #000);
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
+  animation: l1 1s infinite alternate;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  height: 30px;
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 50%;
+}
+.loader:after {
+  margin-left: auto;
+}
+@keyframes l1 {
+  to {
+    width: 40px;
+  }
+}
+/* END OF LOADER */
