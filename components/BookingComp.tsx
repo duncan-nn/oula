@@ -11,6 +11,7 @@ import Review from './Review';
 import { getBookingDateTimes, getServiceById } from '@/services/cosmetic';
 import { generateId } from '@/lib/utils';
 
+import { motion } from 'framer-motion'
 import Image from "next/image";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -115,9 +116,9 @@ export default function Booking () {
     const service = getServiceById(userServiceId);
 
 
-    //const [previousStep, setPreviousStep] = useState(0)
+    const [previousStep, setPreviousStep] = useState(0)
     const [currentStep, setCurrentStep] = useState(0)
-    // const delta = currentStep - previousStep
+    const delta = currentStep - previousStep
 
 
     const isCurrentStepValid = (step: number): boolean => {
@@ -193,14 +194,14 @@ export default function Booking () {
             if (currentStep === steps.length - 5) {
                 // await handleSubmit(processForm)()
             }
-            //setPreviousStep(currentStep)
+            setPreviousStep(currentStep)
             setCurrentStep(step => step + 1)
         }
     }
 
     const prev = () => {
         if (currentStep > 0) {
-            //setPreviousStep(currentStep)
+            setPreviousStep(currentStep)
             setCurrentStep(step => step - 1)
         }
     }
@@ -254,11 +255,11 @@ export default function Booking () {
                     </div>
                     <div className="booking-body">
                         {currentStep === 0 && (
-                            <div
+                            <motion.div
                             className="step-wrap"
-                                // initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                // animate={{ x: 0, opacity: 1 }}
-                                // transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
                             >
                                 <div className="error-div">
                                     {errors.userCosmeticCategory && (
@@ -268,14 +269,14 @@ export default function Booking () {
                                 <CosmeticCategory
                                 userCosmeticCategory={userCosmeticCategory}
                                 setUserCosmeticCategory={setUserCosmeticCategory}/>
-                            </div>
+                            </motion.div>
                         )}
                         {currentStep === 1 && (
-                            <div
+                            <motion.div
                             className="step-wrap"
-                                // initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                // animate={{ x: 0, opacity: 1 }}
-                                // transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
                             >
                                 <div className="error-div">
                                     {errors.userServiceId && (
@@ -287,14 +288,14 @@ export default function Booking () {
                                 userServiceId={userServiceId}
                                 setUserServiceId={setUserServiceId}
                                 />
-                            </div>
+                            </motion.div>
                         )}
                         {currentStep === 2 && (
-                            <div
+                            <motion.div
                             className="step-wrap"
-                                // initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                // animate={{ x: 0, opacity: 1 }}
-                                // transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
                             >
                                 <div className="error-div">
                                     {errors.userDate && (
@@ -311,14 +312,14 @@ export default function Booking () {
                                         <p>Go back and select a service</p>
                                     )
                                 }
-                            </div>
+                            </motion.div>
                         )}
                         {currentStep === 3 && (
-                            <div
+                            <motion.div
                             className="step-wrap"
-                                // initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                // animate={{ x: 0, opacity: 1 }}
-                                // transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
                             >
                                 <div className="error-div">
                                     {errors.startDateTime && (
@@ -338,14 +339,14 @@ export default function Booking () {
                                         <p>Go back and select a date</p>
                                     )
                                 }
-                            </div>
+                            </motion.div>
                         )}
                         {currentStep === 4 && (
-                            <div
+                            <motion.div
                             className="step-wrap"
-                                // initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                // animate={{ x: 0, opacity: 1 }}
-                                // transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
                             >
                                 <div className="error-div">
                                     {errors.userDetails && (
@@ -358,14 +359,14 @@ export default function Booking () {
                                     setUserDetails(data);
                                     //setStep(2);
                                 }}/>
-                            </div>
+                            </motion.div>
                         )}
                         {currentStep === 5 && (
-                            <div
+                            <motion.div
                             className="step-wrap"
-                                // initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                // animate={{ x: 0, opacity: 1 }}
-                                // transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
                             >
                                 <div className="error-div">
                                     {/* {errors.userDetails && (
@@ -373,7 +374,7 @@ export default function Booking () {
                                     )} */}
                                 </div>
                                 <Review booking={booking}/>
-                            </div>
+                            </motion.div>
                         )}
                     </div>
                     <div className="booking-slider-control">

@@ -1,4 +1,3 @@
-import { cosmeticServices } from '@/dataset/services';
 import { formatBookingDateTime } from '@/lib/utils';
 import { getServiceById } from '@/services/cosmetic';
 

@@ -8,7 +8,6 @@ import {
   isSameDay,
   parseISO,
 } from "date-fns";
-import clsx from "clsx";
 
 type Props = {
   selectedDay: Date;
